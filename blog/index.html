@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is This I Hear? · Virgil Governance AI</title>
+<meta name="description" content="AI tools and trends, explained in full. Twice a week, Aaron Ellis picks what's worth your time, connects it to the week's news, and tells you what to watch for and govern before you use it.">
+<meta property="og:title" content="What Is This I Hear?">
+<meta property="og:description" content="AI tools and trends, explained in full. Twice a week.">
+<meta name="theme-color" content="#141A2E">
+<link rel="alternate" type="application/rss+xml" title="What Is This I Hear?" href="/blog/feed.xml">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141A2E'/%3E%3Cpath d='M16 16 L32 50 L48 16' fill='none' stroke='%23C9A227' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #141A2E; --navy-2: #1B2340; --navy-3: #232C4F;
+    --gold: #C9A227; --gold-light: #E8C66A; --lapis: #1F4E8C; --sky: #4A8CC7; --teal: #2E7F86;
+    --cream: #F2E6C9; --ink: #E9E4D6; --muted: #A9AFC4;
+    --line: rgba(201, 162, 39, 0.28); --radius: 14px; --max: 1080px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--navy); color: var(--ink); font: 400 17px/1.65 Inter, system-ui, -apple-system, Segoe UI, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--gold-light); }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .narrow { max-width: 760px; }
+  h1, h2, h3 { font-family: Fraunces, Georgia, serif; font-weight: 600; line-height: 1.15; color: var(--cream); margin: 0; }
+  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  header.nav { position: sticky; top: 0; z-index: 10; background: rgba(20, 26, 46, .88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--cream); font-family: Fraunces, Georgia, serif; font-size: 19px; font-weight: 600; }
+  .nav ul { list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; }
+  .nav ul a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav ul a:hover, .nav ul a[aria-current] { color: var(--cream); }
+
+  .hero { position: relative; overflow: hidden; padding: 96px 0 72px; }
+  .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(700px 380px at 85% 10%, rgba(31, 78, 140, .55), transparent 70%), radial-gradient(520px 320px at 10% 100%, rgba(46, 127, 134, .30), transparent 70%); }
+  .hero .wrap { position: relative; }
+  .hero h1 { font-size: clamp(40px, 6vw, 64px); margin: 16px 0 18px; }
+  .dante { font-family: Fraunces, Georgia, serif; font-size: clamp(20px, 2.4vw, 24px); color: var(--gold-light); margin: 0 0 4px; }
+  .dante-en { color: var(--muted); font-size: 15px; margin: 0 0 26px; }
+  .lead { font-size: 19px; max-width: 38em; margin: 0 0 32px; }
+
+  .signup { display: flex; flex-wrap: wrap; gap: 12px; max-width: 520px; }
+  .signup input { flex: 1 1 240px; min-width: 0; padding: 13px 18px; border-radius: 999px; border: 1px solid var(--line); background: var(--navy-2); color: var(--cream); font: inherit; font-size: 16px; }
+  .signup input::placeholder { color: var(--muted); }
+  .signup input:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .btn { display: inline-block; padding: 13px 22px; border-radius: 999px; font: 600 15px Inter, system-ui, sans-serif; text-decoration: none; border: 0; cursor: pointer; }
+  .btn.primary { background: var(--gold); color: var(--navy); }
+  .btn.primary:hover { background: var(--gold-light); }
+  .fine { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
+
+  section { padding: 80px 0; }
+  section.alt { background: var(--navy-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .head { margin-bottom: 36px; }
+  .head h2 { font-size: clamp(28px, 3.4vw, 38px); margin-top: 12px; }
+  .head p { color: var(--muted); margin: 14px 0 0; }
+
+  .parts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .part { background: var(--navy); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+  .part h3 { font-size: 20px; margin-bottom: 8px; }
+  .part p { margin: 0; color: var(--muted); font-size: 15.5px; }
+
+  .issues { list-style: none; margin: 0; padding: 0; }
+  .issues li { padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+  .issues .date { font-size: 13.5px; color: var(--sky); font-weight: 600; }
+  .issues a.title { display: block; font-family: Fraunces, Georgia, serif; font-size: 24px; color: var(--cream); text-decoration: none; margin: 4px 0 6px; }
+  .issues a.title:hover { color: var(--gold-light); }
+  .empty { border: 1px dashed var(--line); border-radius: var(--radius); padding: 32px; text-align: center; color: var(--muted); }
+  .empty strong { display: block; font-family: Fraunces, Georgia, serif; font-size: 22px; color: var(--cream); margin-bottom: 6px; }
+
+  .rules { margin: 0; padding: 0; list-style: none; }
+  .rules li { padding: 12px 0 12px 30px; position: relative; }
+  .rules li::before { content: ""; position: absolute; left: 4px; top: 21px; width: 10px; height: 10px; border-radius: 2px; background: var(--gold); transform: rotate(45deg); }
+
+  footer { border-top: 1px solid var(--line); padding: 30px 0; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  @media (max-width: 860px) {
+    .hero { padding: 60px 0 56px; }
+    .parts { grid-template-columns: 1fr; }
+    .nav ul { gap: 16px; }
+    .nav ul li.wide { display: none; }
+    section { padding: 60px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Virgil Governance AI, home">
+      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1F4E8C"/><path d="M16 16 L32 50 L48 16" fill="none" stroke="#C9A227" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Virgil Governance AI
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li class="wide"><a href="/#approach">Approach</a></li>
+        <li class="wide"><a href="/#guardrails">Guardrails</a></li>
+        <li><a href="/blog/" aria-current="page">Newsletter</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap narrow">
+      <div class="eyebrow">The Virgil Governance AI newsletter</div>
+      <h1>What Is This I Hear?</h1>
+      <p class="dante">“Maestro, che è quel ch’i’ odo?”</p>
+      <p class="dante-en">“Master, what is this I hear?” Dante to Virgil, Inferno III</p>
+      <p class="lead">AI tools and trends, explained in full. Twice a week, I pick what's worth your time, connect it to the week's news, and tell you what to watch for and govern before you use it.</p>
+      <form class="signup" action="https://buttondown.com/api/emails/embed-subscribe/VGA" method="post">
+        <label class="sr" for="bd-email">Email address</label>
+        <input type="email" name="email" id="bd-email" placeholder="you@example.com" autocomplete="email" required>
+        <button class="btn primary" type="submit">Subscribe</button>
+      </form>
+      <p class="fine">Free. Mondays and Thursdays. You'll get a confirmation email first, and you can unsubscribe any time. Also on <a href="/blog/feed.xml">RSS</a>.</p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">What's in each issue</div>
+        <h2>The fuller picture, then the guardrails.</h2>
+        <p>Creators show you the tool in 60 seconds. This is the part they leave out.</p>
+      </div>
+      <div class="parts">
+        <div class="part"><h3>What they said</h3><p>A short, credited summary of the idea, with a link to the original creator.</p></div>
+        <div class="part"><h3>The fuller picture</h3><p>What it really is, how it works, what it costs, how hard it is, and what's missing or hype.</p></div>
+        <div class="part"><h3>In the news</h3><p>Related stories from the week, linked to the original source.</p></div>
+        <div class="part"><h3>The guardrails angle</h3><p>What to watch before you use it: your data, logins, cost and prompt injection.</p></div>
+        <div class="part"><h3>Cool tools and skills</h3><p>Things people have built, featured only after we've checked them, and we say how.</p></div>
+        <div class="part"><h3>Try it or skip it</h3><p>A one-line verdict, so you know where to spend your time.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="issues">
+    <div class="wrap narrow">
+      <div class="head">
+        <div class="eyebrow">Issues</div>
+        <h2>Latest</h2>
+      </div>
+      <!-- ISSUES: newest first. Each issue:
+      <ul class="issues">
+        <li><div class="date">Mon, Dec 1, 2026</div><a class="title" href="/blog/2026-12-01-title/">Title</a><p>One-line summary.</p></li>
+      </ul>
+      Remove the empty box below once the first issue is listed. -->
+      <div class="empty"><strong>First issue coming soon.</strong>Subscribe above and it'll land in your inbox.</div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap narrow">
+      <div class="head">
+        <div class="eyebrow">How it's made</div>
+        <h2>Our rules for this newsletter.</h2>
+      </div>
+      <ul class="rules">
+        <li>Every creator and every news story is credited and linked. Short quotes only, and we never re-upload anyone's video.</li>
+        <li>Claims are checked at the source: the tool's own site, its pricing, its docs or its code. If we couldn't check something, we say so.</li>
+        <li>Nothing gets featured that we haven't looked at ourselves.</li>
+        <li>AI helps with research and drafting. I read, edit and approve every issue before it goes out.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Virgil Governance AI</span>
+    <span><a href="/">Home</a> · <a href="/blog/feed.xml">RSS</a> · <a href="mailto:hello@virgilgovernanceai.com">hello@virgilgovernanceai.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

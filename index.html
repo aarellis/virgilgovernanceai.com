@@ -135,12 +135,25 @@
   .contact p { color: var(--muted); max-width: 560px; margin: 0 auto 30px; }
   .mail { font-family: Fraunces, Georgia, serif; font-size: clamp(20px, 2.6vw, 26px); color: var(--gold-light); text-decoration: none; border-bottom: 1px solid var(--line); }
 
+  .news { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+  .news h2 { font-size: clamp(30px, 3.6vw, 40px); margin: 12px 0 12px; }
+  .news p { margin: 0 0 14px; }
+  .news .dante { font-family: Fraunces, Georgia, serif; font-size: 20px; color: var(--gold-light); }
+  .news .dante span { font-family: Inter, system-ui, sans-serif; font-size: 14px; color: var(--muted); margin-left: 6px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .signup { display: flex; flex-wrap: wrap; gap: 12px; }
+  .signup input { flex: 1 1 220px; min-width: 0; padding: 13px 18px; border-radius: 999px; border: 1px solid var(--line); background: var(--navy); color: var(--cream); font: inherit; font-size: 16px; }
+  .signup input::placeholder { color: var(--muted); }
+  .signup input:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .signup .btn { border: 0; cursor: pointer; font-family: Inter, system-ui, sans-serif; }
+  .fine { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
+
   footer { border-top: 1px solid var(--line); padding: 30px 0; color: var(--muted); font-size: 14px; }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 
   @media (max-width: 860px) {
     .hero { padding: 64px 0 64px; }
-    .hero .wrap, .fit, .about { grid-template-columns: 1fr; gap: 36px; }
+    .hero .wrap, .fit, .about, .news { grid-template-columns: 1fr; gap: 36px; }
     .steps, .cards, .stack { grid-template-columns: 1fr; }
     .nav ul { display: none; }
     section { padding: 68px 0; }
@@ -162,6 +175,7 @@
         <li><a href="#approach">Approach</a></li>
         <li><a href="#guardrails">Guardrails</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="/blog/">Newsletter</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -178,6 +192,7 @@
         <div class="btns">
           <a class="btn primary" href="#contact">Start a conversation</a>
           <a class="btn ghost" href="#approach">How it works</a>
+          <a class="btn ghost" href="/blog/">Read the newsletter</a>
         </div>
       </div>
       <div class="gate" role="img" aria-label="Example of an agent gate: reading and drafting happen on their own, sending or deleting waits for a person's approval, and private data is never shared.">
@@ -331,7 +346,7 @@
       <div>
         <div class="eyebrow">About</div>
         <h2>Hi, I'm Aaron Ellis.</h2>
-        <p>For more than a decade I've worked inside a federal health program where consent, privacy and getting it right aren't optional. I've coordinated sensitive, regulated work across many organizations and trained the people who do it.</p>
+        <p>For more than a decade I've worked inside a nonprofit, congressionally authorized health program where consent, privacy and getting it right aren't optional. I've coordinated sensitive, regulated work across many organizations and trained the people who do it.</p>
         <p>I also design and run my own governed AI agent system, Virgil. Every action that sends or saves anything needs my approval, sensitive data stays protected, and its rules are locked so the agents can't change them. I bring that same discipline to your team.</p>
         <p>I also own and coach at a CrossFit gym, so I know what it's like to run a small business with no time to waste.</p>
         <div class="creds">
@@ -343,7 +358,27 @@
     </div>
   </section>
 
-  <section id="contact" class="contact alt">
+  <section id="newsletter" class="alt">
+    <div class="wrap news">
+      <div>
+        <div class="eyebrow">The newsletter</div>
+        <h2>What Is This I Hear?</h2>
+        <p class="dante">“Maestro, che è quel ch’i’ odo?” <span>Inferno III</span></p>
+        <p>AI tools and trends, explained in full. Twice a week, I pick what's worth your time, connect it to the week's news, and tell you what to watch for and govern before you use it.</p>
+        <p><a href="/blog/">Read the issues →</a></p>
+      </div>
+      <div>
+        <form class="signup" action="https://buttondown.com/api/emails/embed-subscribe/VGA" method="post">
+          <label class="sr" for="bd-email">Email address</label>
+          <input type="email" name="email" id="bd-email" placeholder="you@example.com" autocomplete="email" required>
+          <button class="btn primary" type="submit">Subscribe</button>
+        </form>
+        <p class="fine">Free. Mondays and Thursdays. You'll get a confirmation email first, and you can unsubscribe any time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
     <div class="wrap">
       <div class="eyebrow">Contact</div>
       <h2>Let's talk about your first workflow.</h2>
