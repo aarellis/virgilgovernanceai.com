@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who holds the keys? · What Is This I Hear? · Virgil Governance AI</title>
+<meta name="description" content="An app that wants full access, an AI that always agrees with you, and agents that code while you sleep.">
+<meta property="og:title" content="Who holds the keys?">
+<meta property="og:description" content="An app that wants full access, an AI that always agrees with you, and agents that code while you sleep.">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#141A2E">
+<link rel="alternate" type="application/rss+xml" title="What Is This I Hear?" href="/blog/feed.xml">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141A2E'/%3E%3Cpath d='M16 16 L32 50 L48 16' fill='none' stroke='%23C9A227' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #141A2E; --navy-2: #1B2340; --navy-3: #232C4F;
+    --gold: #C9A227; --gold-light: #E8C66A; --lapis: #1F4E8C; --sky: #4A8CC7; --teal: #2E7F86;
+    --cream: #F2E6C9; --ink: #E9E4D6; --muted: #A9AFC4;
+    --line: rgba(201, 162, 39, 0.28); --radius: 14px; --max: 1080px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--navy); color: var(--ink); font: 400 17px/1.7 Inter, system-ui, -apple-system, Segoe UI, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--gold-light); overflow-wrap: anywhere; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .narrow { max-width: 720px; }
+  h1, h2, h3 { font-family: Fraunces, Georgia, serif; font-weight: 600; line-height: 1.15; color: var(--cream); margin: 0; }
+  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  header.nav { position: sticky; top: 0; z-index: 10; background: rgba(20, 26, 46, .88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--cream); font-family: Fraunces, Georgia, serif; font-size: 19px; font-weight: 600; }
+  .nav ul { list-style: none; display: flex; gap: 26px; margin: 0; padding: 0; }
+  .nav ul a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500; }
+  .nav ul a:hover, .nav ul a[aria-current] { color: var(--cream); }
+
+  .post-head { padding: 72px 0 24px; }
+  .post-head h1 { font-size: clamp(36px, 5.5vw, 56px); margin: 14px 0 12px; }
+  .meta { color: var(--sky); font-size: 14.5px; font-weight: 600; }
+  .dante { font-family: Fraunces, Georgia, serif; color: var(--gold-light); font-style: italic; margin: 18px 0 0; }
+  article { padding: 8px 0 56px; }
+  article h2 { font-size: clamp(24px, 3vw, 30px); margin: 44px 0 14px; }
+  article p, article li { margin: 0 0 16px; }
+  article ul, article ol { padding-left: 24px; margin: 0 0 16px; }
+  article li { margin-bottom: 8px; }
+  article strong { color: var(--cream); }
+  article code { background: var(--navy-3); padding: 1px 6px; border-radius: 6px; font-size: 15px; overflow-wrap: anywhere; }
+  article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+
+  .signup-box { background: var(--navy-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; margin: 0 0 72px; }
+  .signup-box h2 { font-size: 24px; margin-bottom: 8px; }
+  .signup { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+  .signup input { flex: 1 1 240px; min-width: 0; padding: 13px 18px; border-radius: 999px; border: 1px solid var(--line); background: var(--navy); color: var(--cream); font: inherit; font-size: 16px; }
+  .signup input::placeholder { color: var(--muted); }
+  .signup input:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .btn { display: inline-block; padding: 13px 22px; border-radius: 999px; font: 600 15px Inter, system-ui, sans-serif; text-decoration: none; border: 0; cursor: pointer; }
+  .btn.primary { background: var(--gold); color: var(--navy); }
+  .btn.primary:hover { background: var(--gold-light); }
+  .fine { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
+
+  footer { border-top: 1px solid var(--line); padding: 30px 0; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  @media (max-width: 860px) {
+    .post-head { padding: 48px 0 16px; }
+    .nav ul { gap: 16px; }
+    .nav ul li.wide { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Virgil Governance AI, home">
+      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1F4E8C"/><path d="M16 16 L32 50 L48 16" fill="none" stroke="#C9A227" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Virgil Governance AI
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li class="wide"><a href="/#approach">Approach</a></li>
+        <li class="wide"><a href="/#guardrails">Guardrails</a></li>
+        <li><a href="/blog/" aria-current="page">Newsletter</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap narrow">
+    <div class="post-head">
+      <div class="eyebrow"><a href="/blog/" style="color:inherit;text-decoration:none">What Is This I Hear?</a> · Issue 1</div>
+      <h1>Who holds the keys?</h1>
+      <div class="meta">Thursday, November 26, 2026 · Aaron Ellis</div>
+      <p class="dante">“Maestro, che è quel ch’i’ odo?” (Inferno III). AI tools and trends, explained in full.</p>
+    </div>
+    <article>
+<p>Happy Thanksgiving, and welcome to the first issue.</p>
+<p>Here's the deal. Every week I see a flood of AI reels: "this changes everything," "comment the word and I'll send it." Some of it is great. Some of it is hype. Almost none of it tells you what to watch before you plug it into your life or your business. That's the part I care about, so that's what this newsletter is.</p>
+<p>This week, three stories with the same question underneath: <strong>who holds the keys?</strong></p>
+<hr>
+<h2>1. Your Claude creations can now be real desktop apps</h2>
+<p><strong>What they said:</strong> <a href="https://www.instagram.com/nateherkai">@nateherkai</a> walked through Claude's new "Install as app" feature: build something in Claude, right-click, install it, and it opens like any other program. He also flagged the scary permission: "Full access to this computer." (<a href="https://www.instagram.com/reel/DgJS6aMMQXM/">reel</a>)</p>
+<p><strong>The fuller picture:</strong> This one is real and brand new. Anthropic announced it on November 24. It's in beta for Claude on Mac and Windows, on every plan, Free included. You need Claude desktop version 6.28899.0 or later. The app gets its own icon and its own window, and it can use Claude and your connectors. Two catches the hype skips: you have to be online and signed in to Claude to open it, and everything the app asks Claude counts against your plan's usage. It doesn't cost extra, but it isn't free either.</p>
+<p><strong>In the news:</strong></p>
+<ul>
+<li>Anthropic's announcement: <a href="https://claude.com/resources/articles/install-as-app">Install as app</a></li>
+<li>The details (plans, versions, permissions): <a href="https://support.claude.com/en/articles/18516354-install-an-artifact-as-an-app">Claude Help Center</a></li>
+<li><a href="https://9to5mac.com/2026/11/24/anthropic-just-gave-claude-users-a-new-way-to-make-mac-apps/">9to5Mac's coverage</a></li>
+</ul>
+<p><strong>The guardrails angle:</strong> There are three permission levels:</p>
+<ol>
+<li><strong>Default:</strong> browser-level, nothing more.</li>
+<li><strong>App permissions:</strong> notifications, keyboard shortcuts, floating over other windows (which can also see where your cursor is), and a menu bar or system tray icon.</li>
+<li><strong>Full access to this computer:</strong> the app can run programs and read, change or delete your files without asking each time.</li>
+</ol>
+<p>Anthropic says plainly that it does not review apps before you install them. The good news: on personal plans, you can only give full access to apps you made yourself. Claude asks again after every update, even your own edits. One thing to know: code the app loads from other websites can change without a new prompt.</p>
+<p>For teams: on Team plans the feature is on, but full access stays off until an admin turns it on. On Enterprise, the whole feature is off until an owner turns it on. Make that a decision, not a default.</p>
+<p><strong>Try it or skip it:</strong> <strong>Try it</strong> on things you build yourself, at default permissions. Treat "full access" like handing someone your house keys.</p>
+<hr>
+<h2>2. Your AI agrees with you way too much (there's a study)</h2>
+<p><strong>What they said:</strong> <a href="https://www.instagram.com/nateherkai">@nateherkai</a> cited a Stanford finding that AI takes your side far more often than a person would, and said telling it to "be honest" won't fix it. His answer is the Roast Room, a free Claude Code skill where a board of AI advisors debates your business decision. (<a href="https://www.instagram.com/reel/DgDL5ljgXKW/">reel</a>)</p>
+<p><strong>The fuller picture:</strong> The study is real, and the numbers hold up. A Stanford-led team, published in <em>Science</em> in March, tested 11 leading models, including ChatGPT, Claude, Gemini and DeepSeek.</p>
+<ul>
+<li>The models affirmed users' actions about <strong>49% more often than humans</strong> did, including when the user was describing something deceptive or harmful.</li>
+<li>On about 2,000 Reddit "Am I the A-hole?" posts where the community said the poster was wrong, the models still sided with the poster <strong>51%</strong> of the time. The humans: 0%.</li>
+<li>In experiments with 2,405 people, folks trusted the agreeable AI more and were more likely to come back to it. After even one conversation, they were less willing to apologize or patch things up, and more sure they were right.</li>
+</ul>
+<p>Nate's <a href="https://github.com/nateherkai/roast-room">Roast Room</a> is a sensible workaround. A default board of seven advisor personas each owns one question. If round one comes back unanimous, that's treated as a warning, and the chair assigns advisors to argue the strongest alternative. After three rounds you get a weighted verdict with a minority report. One honest note: the reel says they vote; the repo says the chair scores it. Either way, the "advisors" are the same model wearing seven hats. The disagreement is simulated, and it shares the model's blind spots.</p>
+<p><strong>In the news:</strong></p>
+<ul>
+<li>The paper: <a href="https://www.science.org/doi/10.1126/science.aec8352">Cheng et al., <em>Science</em>, March 2026</a></li>
+<li>The plain-English write-up: <a href="https://techxplore.com/news/2026-03-ai-overly-affirms-users-personal.html">TechXplore</a></li>
+</ul>
+<p><strong>The guardrails angle:</strong> This one is about us, not the model. The flattering answer feels better, so we trust it more, and that's exactly when it costs money: business decisions, pricing, hiring. Three rules I use:</p>
+<ol>
+<li>An "honest mode" prompt is still the same model. Real dissent comes from a different process, a different model, or a person.</li>
+<li>Check the verdict against something outside the AI before you act on it.</li>
+<li>The bigger the decision, the more you need someone who will tell you no.</li>
+</ol>
+<p>If you try Roast Room: we read its README and part of its code, but didn't run it. It runs locally on your machine and needs Claude Code and Node 20. By default it doesn't need an API key, but it eats plan usage. If you switch it to the paid API, don't leave its local page running while you browse, since it has no login.</p>
+<p><strong>Try it or skip it:</strong> <strong>Try the idea</strong> on your next big call: get a second opinion that's built to disagree, human or machine. The tool itself is optional.</p>
+<hr>
+<h2>3. Agents that code while the laptop is closed</h2>
+<p><strong>What they said:</strong> <a href="https://www.instagram.com/crazee_ash">@crazee_ash</a> showed her setup: she sends a request from her phone, a server turns it into a ticket, a second "runner" server builds and reviews the change and opens a pull request, and only her own Mac can merge it. Her own words: still a work in progress. (<a href="https://www.instagram.com/reel/DgGZeUJCJnf/">reel</a>) The same week, <a href="https://www.instagram.com/githubprojects">@githubprojects</a> featured <a href="https://github.com/Tencent/LoopForge">LoopForge</a>, Tencent's open-source workspace that does a version of this for teams. (<a href="https://www.instagram.com/reel/DgDfwELE_0X/">reel</a>)</p>
+<p><strong>The fuller picture:</strong> The best idea in both is the same: <strong>the agent can build, but it can't ship on its own.</strong> Ashley's runner can't merge, and GitHub is the only bridge between her machines. That's separation of duties, the same rule banks use. Her setup is shown in the reel; I couldn't check it beyond that.</p>
+<p>LoopForge is real and growing fast: MIT-licensed, about 6,100 GitHub stars, version 0.4.0 out November 17. It runs the coding agents you already pay for (Claude Code, Codex, Cursor CLI and others) inside Docker sandboxes, with human approval steps, and a run can end in a pull request. It doesn't come with model access. You bring your own.</p>
+<p><strong>In the news:</strong></p>
+<ul>
+<li><a href="https://github.com/Tencent/LoopForge">LoopForge on GitHub</a> (the README and the deployment docs are where the safety notes live)</li>
+</ul>
+<p><strong>The guardrails angle:</strong> Both setups have good bones and sharp edges.</p>
+<ul>
+<li><strong>Ashley's:</strong> her Claude login sits on a rented server. If that box gets broken into, so does whatever that login can reach. And her runner can still open pull requests, so a poisoned ticket could slip bad code in front of a tired human at merge time. The human gate only works if the human actually reads.</li>
+<li><strong>LoopForge's defaults:</strong> its own docs say the sandboxes use the host's Docker socket, which equals root on that machine, and that it assumes a trusted team. Out of the box it listens on every network interface (port 8090), anyone can sign up, the first account becomes admin, and every signed-in user can see every project. Turn signup off (<code>AGENTFLOW_ALLOW_SIGNUP=false</code>) and keep it off the open internet. The chat screen is Chinese-first for now, which matters for an English-only team.</li>
+</ul>
+<p><strong>Try it or skip it:</strong> <strong>Try the shape:</strong> let agents build and keep a human on the merge button. <strong>Skip</strong> putting your logins on rented servers or running a default install where strangers can reach it.</p>
+<hr>
+<h2>The takeaway</h2>
+<p>Three different tools, one question: who holds the keys? The app that wants full access, the AI that tells you what you want to hear, the agent with a merge button. The tools keep getting better. The keys are still your job.</p>
+<p>See you Monday.</p>
+<p>Aaron Ellis</p>
+<p>Virgil Governance AI</p>
+<p><em>AI helps with research and drafting. I read, edit and approve every issue before it goes out.</em></p>
+    </article>
+    <div class="signup-box">
+      <h2>Get the next issue</h2>
+      <p style="margin:0;color:var(--muted)">Free. Mondays and Thursdays.</p>
+      <form class="signup" action="https://buttondown.com/api/emails/embed-subscribe/VGA" method="post">
+        <label class="sr" for="bd-email">Email address</label>
+        <input type="email" name="email" id="bd-email" placeholder="you@example.com" autocomplete="email" required>
+        <button class="btn primary" type="submit">Subscribe</button>
+      </form>
+      <p class="fine">You'll get a confirmation email first, and you can unsubscribe any time. Also on <a href="/blog/feed.xml">RSS</a>.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Virgil Governance AI</span>
+    <span><a href="/">Home</a> · <a href="/blog/">All issues</a> · <a href="/blog/feed.xml">RSS</a> · <a href="mailto:hello@virgilgovernanceai.com">hello@virgilgovernanceai.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
